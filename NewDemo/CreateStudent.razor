@@ -1,0 +1,49 @@
+﻿@page "/addstudentrecord"
+@page "/edit/{studentId:int}"
+@using NewDemo.Models.Model
+@using NewDemo.Services.Interface
+@inject IStudentInterface _studentService
+@inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
+
+<h3> @Title Student </h3>
+<hr />
+
+<EditForm OnValidSubmit="CreateStudentRecord" Model="@newStudent" FormName="StudentForm">
+    <DataAnnotationsValidator />
+
+    <div class="form-group">
+        <label for="FullName" class="control-label">Full Name</label>
+        <InputText id="FullName" class="form-control" @bind-Value="newStudent.FullName" />
+        <ValidationMessage For="@(() => newStudent.FullName)" />
+    </div>
+
+    <div class="form-group">
+        <label for="UserName" class="control-label">User Name</label>
+        <InputText id="UserName" class="form-control" @bind-Value="newStudent.UserName" />
+        <ValidationMessage For="@(() => newStudent.UserName)" />
+    </div>
+
+    <div class="form-group">
+        <label for="UserEmail" class="control-label">User Email</label>
+        <InputText id="UserEmail" class="form-control" @bind-Value="newStudent.UserEmail" />
+        <ValidationMessage For="@(() => newStudent.UserEmail)" />
+    </div>
+
+    <div class="form-group">
+        <label for="Phone" class="control-label">Phone</label>
+        <InputText id="Phone" class="form-control" @bind-Value="newStudent.Phone" />
+        <ValidationMessage For="@(() => newStudent.Phone)" />
+    </div>
+
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-secondary" @onclick="Cancel">Cancel</button>
+    </div>
+</EditForm>
+
+
+
+
+

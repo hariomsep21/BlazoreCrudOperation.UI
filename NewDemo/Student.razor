@@ -1,0 +1,76 @@
+﻿@page "/"
+@using NewDemo.Models.Model
+@using NewDemo.Services.Interface
+@inject IStudentInterface _studentService
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .action-buttons {
+        display: flex;
+        justify-content: space-around;
+    }
+</style>
+
+<NavLink class="nav-link" href="addstudentrecord">
+    <span class="oi oi-plus" aria-hidden="true">Add New Student</span>
+</NavLink>
+
+<h1>Student List</h1>
+
+@if (EmpObj is null)
+{
+    <p><em>Loading List...</em></p>
+}
+else
+{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>User Name</th>
+                <th>User Email</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in EmpObj)
+            {
+                <tr>
+                    <td>@student.FullName</td>
+                    <td>@student.UserName</td>
+                    <td>@student.UserEmail</td>
+                    <td>@student.Phone</td>
+                    <td class="action-buttons">
+                        <!-- Use a button for the delete icon and handle the click event -->
+                        <a href="/delete/@student.Id" class="fas fa-trash-alt btn-outline-danger"></a> <!-- Delete Icon -->
+                        <a href='/edit/@student.Id' class="fas fa-edit btn-outline-success"></a>      <!-- Edit Icon -->
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+
+
+@code {
+  
+}
+
