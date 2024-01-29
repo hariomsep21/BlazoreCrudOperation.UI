@@ -1,6 +1,6 @@
 ﻿using NewDemo.Models.Model;
 
-namespace NewDemo
+namespace NewDemo.Pages.Student
 {
     public partial class Student
     {

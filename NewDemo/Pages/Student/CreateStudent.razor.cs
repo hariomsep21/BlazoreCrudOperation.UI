@@ -5,7 +5,7 @@ using NewDemo.Services.Interface;
 using static System.Net.WebRequestMethods;
 using System.ComponentModel.DataAnnotations;
 
-namespace NewDemo
+namespace NewDemo.Pages.Student
 {
 
     public partial class CreateStudent
