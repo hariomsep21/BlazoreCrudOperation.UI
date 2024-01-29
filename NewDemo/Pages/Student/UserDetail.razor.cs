@@ -3,7 +3,7 @@ using NewDemo.Models.Model;
 using NewDemo.Services.Service;
 using static System.Net.WebRequestMethods;
 
-namespace NewDemo.Pages
+namespace NewDemo.Pages.Student
 {
     public partial class UserDetail
     {
